@@ -1,27 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmap.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/18 19:15:43 by toto              #+#    #+#             */
-/*   Updated: 2019/10/08 13:58:51 by bbellavi         ###   ########.fr       */
+/*   Created: 2019/10/08 13:53:02 by bbellavi          #+#    #+#             */
+/*   Updated: 2019/10/09 21:19:43 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmap(char const *s, char (*f)(char))
+void	ft_lstadd_front(t_list **alst, t_list *new)
 {
-	char *mapped;
-	char *begin;
-
-	mapped = ft_strnew(ft_strlen(s) + 1);
-	if (mapped == NULL)
-		return (NULL);
-	begin = mapped;
-	while (*s)
-		*mapped++ = f(*s++);
-	return (begin);
+	new->next = *alst;
+	*alst = new;
 }
