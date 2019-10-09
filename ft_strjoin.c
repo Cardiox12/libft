@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tony <marvin@42.fr>                        +#+  +:+       +#+        */
+/*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/20 15:17:58 by tony              #+#    #+#             */
-/*   Updated: 2019/08/20 15:36:49 by tony             ###   ########.fr       */
+/*   Updated: 2019/10/08 14:04:36 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 {
 	const size_t	s1_len = ft_strlen(s1);
 	const size_t	s2_len = ft_strlen(s2);
-	char 			*begin;
+	char			*begin;
 	char			*concat;
 
 	concat = ft_strnew(s1_len + s2_len + 1);

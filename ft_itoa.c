@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: toto <marvin@42.fr>                        +#+  +:+       +#+        */
+/*   By: bbellavi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/28 23:25:34 by toto              #+#    #+#             */
-/*   Updated: 2019/08/28 23:27:25 by toto             ###   ########.fr       */
+/*   Created: 2019/10/08 13:50:47 by bbellavi          #+#    #+#             */
+/*   Updated: 2019/10/08 14:25:37 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,12 @@ char	*ft_itoa(int n)
 	char	*number;
 
 	number_size = (n > 0) ? ft_get_number_len(n) : ft_get_number_len(n) + 1;
-	number = ft_strnew(sizeof(char) * (number_size + 1));
-	end = 0;
-	if (number == NULL)
+	if ((number = ft_strnew(sizeof(char) * (number_size + 1))) == NULL)
 		return (NULL);
+	end = 0;
 	if (n == INT_MIN)
 	{
-		strcpy(number, "-2147483648");
+		ft_strcpy(number, "-2147483648");
 		return (number);
 	}
 	if (n < 0)
@@ -59,4 +58,4 @@ char	*ft_itoa(int n)
 		n = n / 10;
 	}
 	return (number);
-}	
+}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tony <marvin@42.fr>                        +#+  +:+       +#+        */
+/*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/16 12:37:25 by tony              #+#    #+#             */
-/*   Updated: 2019/10/07 14:02:57 by bbellavi         ###   ########.fr       */
+/*   Updated: 2019/10/08 14:10:47 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@ size_t		ft_strlcat(char *dst, const char *src, size_t dstsize)
 	while (n-- != 0 && *d != '\0')
 		d++;
 	dlen = d - dst;
-	n = dstsize	- dlen;
+	n = dstsize - dlen;
 	if (n == 0)
-		return(dlen + ft_strlen(s));
+		return (dlen + ft_strlen(s));
 	while (*s != '\0')
 	{
-		if (n != 1) 
+		if (n != 1)
 		{
 			*d++ = *s;
 			n--;
@@ -37,5 +37,5 @@ size_t		ft_strlcat(char *dst, const char *src, size_t dstsize)
 		s++;
 	}
 	*d = '\0';
-	return(dlen + s - src);
+	return (dlen + (s - src));
 }

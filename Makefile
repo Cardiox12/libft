@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: toto <marvin@42.fr>                        +#+  +:+       +#+         #
+#    By: bbellavi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2019/08/14 19:30:17 by toto              #+#    #+#              #
-#    Updated: 2019/10/07 13:49:22 by bbellavi         ###   ########.fr        #
+#    Created: 2019/10/09 09:34:32 by bbellavi          #+#    #+#              #
+#    Updated: 2019/10/09 09:36:48 by bbellavi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,6 +70,7 @@ SRCS	+= ft_lstadd.c
 SRCS	+= ft_lstiter.c
 SRCS	+= ft_lstmap.c
 SRCS	+= ft_strlcpy.c
+SRCS	+= ft_calloc.c
 OBJS	= $(SRCS:.c=.o)
 NAME	= libft.a
 

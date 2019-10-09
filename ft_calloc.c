@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmap.c                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bbellavi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/18 19:15:43 by toto              #+#    #+#             */
-/*   Updated: 2019/10/08 13:58:51 by bbellavi         ###   ########.fr       */
+/*   Created: 2019/10/08 12:56:20 by bbellavi          #+#    #+#             */
+/*   Updated: 2019/10/08 13:40:08 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmap(char const *s, char (*f)(char))
+void	*ft_calloc(size_t count, size_t size)
 {
-	char *mapped;
-	char *begin;
+	void *ptr;
 
-	mapped = ft_strnew(ft_strlen(s) + 1);
-	if (mapped == NULL)
+	if (count == 0 || size == 0)
 		return (NULL);
-	begin = mapped;
-	while (*s)
-		*mapped++ = f(*s++);
-	return (begin);
+	ptr = malloc(size * count);
+	if (ptr == NULL)
+		return (NULL);
+	ft_bzero(ptr, size * count);
+	return (ptr);
 }
