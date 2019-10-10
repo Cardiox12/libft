@@ -13,6 +13,7 @@
 CC		= gcc
 CFLAGS	= -Wall -Werror -Wextra
 INC_DIR = .
+INC_F	= $(INC_DIR)/libft.h
 SRC_DIR = srcs
 SRCS	= ft_strlen.c
 SRCS	+= ft_memset.c
@@ -61,12 +62,12 @@ NAME	= libft.a
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) $(INC_F)
 	ar rc $@ $?
 	ranlib $@
 
-%.o: %.c
-	$(CC) $(CFLAGS) -o $@ -c $^ -I $(INC_DIR)
+%.o: %.c $(INC_F)
+	$(CC) $(CFLAGS) -o $@ -c $< -I $(INC_DIR)
 
 clean:
 	rm -rf $(OBJS)
