@@ -6,13 +6,13 @@
 /*   By: bbellavi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 13:47:30 by bbellavi          #+#    #+#             */
-/*   Updated: 2019/10/08 13:47:32 by bbellavi         ###   ########.fr       */
+/*   Updated: 2019/10/10 14:12:09 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_isalpha(char c)
+int		ft_isalpha(int c)
 {
 	return (((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')) ? 1 : 0);
 }

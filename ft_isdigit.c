@@ -6,13 +6,13 @@
 /*   By: bbellavi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 13:50:21 by bbellavi          #+#    #+#             */
-/*   Updated: 2019/10/08 13:50:23 by bbellavi         ###   ########.fr       */
+/*   Updated: 2019/10/10 14:14:36 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_isdigit(char c)
+int		ft_isdigit(int c)
 {
 	return ((c >= '0' && c <= '9') ? 1 : 0);
 }

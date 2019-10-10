@@ -6,13 +6,13 @@
 /*   By: bbellavi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 13:50:31 by bbellavi          #+#    #+#             */
-/*   Updated: 2019/10/08 13:50:39 by bbellavi         ###   ########.fr       */
+/*   Updated: 2019/10/10 14:14:01 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_isprint(char c)
+int		ft_isprint(int c)
 {
 	return ((c >= 32 && c < 127) ? 1 : 0);
 }
