@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_strisset.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bbellavi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/27 03:39:55 by tony              #+#    #+#             */
-/*   Updated: 2019/10/10 15:26:30 by bbellavi         ###   ########.fr       */
+/*   Created: 2019/10/10 15:01:45 by bbellavi          #+#    #+#             */
+/*   Updated: 2019/10/10 15:16:32 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+int		ft_strisset(const char *str, const char *set)
 {
-	const char *final_s = s;
-
-	while (*s)
-		s++;
-	write(fd, final_s, s - final_s);
+	while (*str)
+	{
+		if (!ft_isset(*str, set))
+			return (0);
+		str++;
+	}
+	return (1);
 }

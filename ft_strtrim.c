@@ -6,67 +6,51 @@
 /*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/20 15:40:52 by tony              #+#    #+#             */
-/*   Updated: 2019/10/08 14:27:40 by bbellavi         ###   ########.fr       */
+/*                                                        :::      ::::::::   */
+/*   Updated: 2019/10/10 14:43:08 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_isspace(char c)
-{
-	return ((c == '\n' || c == '\t' || c == '\v' ||
-				c == '\f' || c == '\r' || c == ' ') ? 1 : 0);
-}
-
-static int	ft_str_isspace(char const *s)
-{
-	while (*s)
-	{
-		if (!ft_isspace(*s))
-			return (0);
-		s++;
-	}
-	return (1);
-}
-
-static size_t	ft_get_left_limit(const char *s)
+static size_t	ft_get_left_limit(const char *s, const char *set)
 {
 	const char *final_str = s;
 
-	while (*s && ft_isspace(*s))
+	while (*s && ft_isset(*s, set))
 		s++;
 	return (s - final_str);
 }
 
-static size_t	ft_get_right_limit(const char *s)
+static size_t	ft_get_right_limit(const char *s, const char *set)
 {
 	size_t limit;
 
 	limit = ft_strlen(s);
-	while (limit != 0 && ft_isspace(s[limit - 1]))
+	while (limit != 0 && ft_isset(s[limit - 1], set))
 		limit--;
 	return (limit);
 }
 
-static int	ft_strlen_trim(char const *s)
+static int	ft_strlen_trim(char const *s, const char *set)
 {
-	if (ft_str_isspace(s))
-		return (0);
-	return (ft_get_right_limit(s) - ft_get_left_limit(s));
+	if (ft_strisset(s, set))
+		return (0);	
+	return (ft_get_right_limit(s, set) - ft_get_left_limit(s, set));
 }
 
-char		*ft_strtrim(char const *s)
+char		*ft_strtrim(char const *s, char const *set)
 {
 	char	*trim;
 	char	*begin;
 	size_t	index;
 	size_t 	limit;
 
-	trim = ft_strnew(ft_strlen_trim(s) + 1);
+	trim = ft_strnew(ft_strlen_trim(s, set) + 1);
 	if (trim == NULL)
 		return (NULL);
-	index = ft_get_left_limit(s);
-	limit = ft_get_right_limit(s);
+	index = ft_get_left_limit(s, set);
+	limit = ft_get_right_limit(s, set);
 	begin = trim;
 	while (index < limit)
 	{

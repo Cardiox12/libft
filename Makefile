@@ -6,7 +6,7 @@
 #    By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/09 09:34:32 by bbellavi          #+#    #+#              #
-#    Updated: 2019/10/10 14:20:42 by bbellavi         ###   ########.fr        #
+#    Updated: 2019/10/10 15:31:48 by bbellavi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,9 @@ INC_DIR = .
 INC_F	= $(INC_DIR)/libft.h
 SRC_DIR = srcs
 SRCS	= ft_strlen.c
+SRCS	+= ft_isset_bonus.c
+SRCS	+= ft_strisset_bonus.c
+SRCS	+= ft_isspace_bonus.c
 SRCS	+= ft_memset.c
 SRCS	+= ft_bzero.c
 SRCS	+= ft_memcpy.c
