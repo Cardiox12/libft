@@ -6,15 +6,15 @@
 /*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 13:54:34 by bbellavi          #+#    #+#             */
-/*   Updated: 2019/10/09 22:24:15 by bbellavi         ###   ########.fr       */
+/*   Updated: 2019/10/10 15:57:08 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstdelone(t_list **alst, void (*del)(void*, size_t))
+void	ft_lstdelone(t_list **alst, void (*del)(void*))
 {
-	del((*alst)->content, (*alst)->content_size);
+	del((*alst)->content);
 	free(*alst);
 	*alst = NULL;
 }
