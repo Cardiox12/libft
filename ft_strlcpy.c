@@ -6,13 +6,13 @@
 /*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/07 15:11:25 by bbellavi          #+#    #+#             */
-/*   Updated: 2019/10/08 13:58:41 by bbellavi         ###   ########.fr       */
+/*   Updated: 2019/10/11 14:32:01 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dest, char *src, unsigned int size)
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
 	const size_t	src_len = ft_strlen(src);
 

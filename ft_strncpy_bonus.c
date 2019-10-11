@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   ft_strncpy_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bbellavi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/08 13:54:41 by bbellavi          #+#    #+#             */
-/*   Updated: 2019/10/11 14:01:19 by bbellavi         ###   ########.fr       */
+/*   Created: 2019/10/11 14:29:22 by bbellavi          #+#    #+#             */
+/*   Updated: 2019/10/11 14:29:44 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+char	*ft_strncpy(char *dst, const char *src, size_t len)
 {
-	while (lst != NULL)
-	{
-		f(lst->content);
-		lst = lst->next;
-	}
+	char *begin;
+
+	begin = dst;
+	while (len--)
+		*dst++ = (*src) ? *src++ : '\0';
+	return (begin);
 }
+
