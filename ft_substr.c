@@ -12,18 +12,12 @@
 
 #include "libft.h"
 
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	const size_t	limit = start + len;
-	const size_t	total_size = limit - start;
-	char 			*substr;
-	char			*begin;
+	char *sub;
 
-	substr = ft_strnew(total_size + 1);
-	if (substr == NULL)
+	sub = ft_strnew(len + 1);
+	if (sub == NULL)
 		return (NULL);
-	begin = substr;
-	while (start < limit)
-		*substr++ = s[start++];
-	return (begin);
+	return (ft_memcpy(sub, s + start, len));
 }

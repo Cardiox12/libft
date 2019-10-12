@@ -64,7 +64,7 @@ static char		*ft_strndup(const char *s, size_t len)
 	return (begin);
 }
 
-char	**ft_strsplit(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char	**strings;
 	size_t	index;
