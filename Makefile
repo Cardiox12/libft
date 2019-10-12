@@ -6,7 +6,7 @@
 #    By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/09 09:34:32 by bbellavi          #+#    #+#              #
-#    Updated: 2019/10/11 13:37:08 by bbellavi         ###   ########.fr        #
+#    Updated: 2019/10/12 18:13:15 by elfamoso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,6 +58,8 @@ SRCS	+= ft_lstsize_bonus.c
 SRCS	+= ft_lstlast_bonus.c
 SRCS	+= ft_strnew_bonus.c
 SRCS	+= ft_strlcpy.c
+SRCS	+= ft_strncpy_bonus.c
+SRCS	+= ft_strcpy_bonus.c
 SRCS	+= ft_calloc.c
 OBJS	= $(SRCS:.c=.o)
 NAME	= libft.a

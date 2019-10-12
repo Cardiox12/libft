@@ -6,7 +6,7 @@
 /*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 09:38:47 by bbellavi          #+#    #+#             */
-/*   Updated: 2019/10/11 14:30:30 by bbellavi         ###   ########.fr       */
+/*   Updated: 2019/10/12 18:13:40 by elfamoso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,6 @@ char	*ft_strnew(size_t size);
 int		ft_isset(int c, const char *set);
 int		ft_strisset(const char *str, const char *set);
 char	*ft_strncpy(char *dst, const char *src, size_t len);
+char	*ft_strcpy(char *dst, const char *src);
 
 #	endif
