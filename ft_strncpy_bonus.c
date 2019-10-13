@@ -6,7 +6,7 @@
 /*   By: bbellavi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/11 14:29:22 by bbellavi          #+#    #+#             */
-/*   Updated: 2019/10/11 14:29:44 by bbellavi         ###   ########.fr       */
+/*   Updated: 2019/10/13 02:37:59 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,4 +21,3 @@ char	*ft_strncpy(char *dst, const char *src, size_t len)
 		*dst++ = (*src) ? *src++ : '\0';
 	return (begin);
 }
-
