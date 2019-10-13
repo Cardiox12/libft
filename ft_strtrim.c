@@ -3,11 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bbellavi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/20 15:40:52 by tony              #+#    #+#             */
-/*                                                        :::      ::::::::   */
-/*   Updated: 2019/10/10 14:43:08 by bbellavi         ###   ########.fr       */
+/*   Created: 2019/10/13 02:04:34 by bbellavi          #+#    #+#             */
+/*   Updated: 2019/10/13 02:08:27 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,19 +31,19 @@ static size_t	ft_get_right_limit(const char *s, const char *set)
 	return (limit);
 }
 
-static int	ft_strlen_trim(char const *s, const char *set)
+static int		ft_strlen_trim(char const *s, const char *set)
 {
 	if (ft_strisset(s, set))
-		return (0);	
+		return (0);
 	return (ft_get_right_limit(s, set) - ft_get_left_limit(s, set));
 }
 
-char		*ft_strtrim(char const *s, char const *set)
+char			*ft_strtrim(char const *s, char const *set)
 {
 	char	*trim;
 	char	*begin;
 	size_t	index;
-	size_t 	limit;
+	size_t	limit;
 
 	trim = ft_strnew(ft_strlen_trim(s, set) + 1);
 	if (trim == NULL)

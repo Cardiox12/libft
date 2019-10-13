@@ -6,7 +6,7 @@
 /*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/24 17:53:11 by tony              #+#    #+#             */
-/*   Updated: 2019/10/08 13:59:46 by bbellavi         ###   ########.fr       */
+/*   Updated: 2019/10/13 02:09:03 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ static char		*ft_strndup(const char *s, size_t len)
 	return (begin);
 }
 
-char	**ft_split(char const *s, char c)
+char			**ft_split(char const *s, char c)
 {
 	char	**strings;
 	size_t	index;

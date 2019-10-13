@@ -6,7 +6,7 @@
 /*   By: bbellavi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 13:50:47 by bbellavi          #+#    #+#             */
-/*   Updated: 2019/10/08 14:25:37 by bbellavi         ###   ########.fr       */
+/*   Updated: 2019/10/13 02:09:59 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static size_t	ft_get_number_len(int nb)
 	return (counter);
 }
 
-char	*ft_itoa(int n)
+char			*ft_itoa(int n)
 {
 	size_t	number_size;
 	size_t	end;
