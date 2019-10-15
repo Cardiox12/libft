@@ -6,7 +6,7 @@
 /*   By: bbellavi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 13:50:47 by bbellavi          #+#    #+#             */
-/*   Updated: 2019/10/13 02:09:59 by bbellavi         ###   ########.fr       */
+/*   Updated: 2019/10/15 23:43:47 by elfamoso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,13 @@ char			*ft_itoa(int n)
 	char	*number;
 
 	number_size = (n > 0) ? ft_get_number_len(n) : ft_get_number_len(n) + 1;
-	if ((number = ft_strnew(sizeof(char) * (number_size + 1))) == NULL)
+	if ((number = malloc(sizeof(char) * (number_size + 1))) == NULL)
 		return (NULL);
+	number[number_size] = '\0';
 	end = 0;
 	if (n == INT_MIN)
 	{
-		ft_strcpy(number, "-2147483648");
+		ft_memcpy(number, "-2147483648\0", 12);
 		return (number);
 	}
 	if (n < 0)

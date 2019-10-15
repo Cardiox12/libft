@@ -6,7 +6,7 @@
 /*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/18 19:27:03 by toto              #+#    #+#             */
-/*   Updated: 2019/10/10 16:27:53 by bbellavi         ###   ########.fr       */
+/*   Updated: 2019/10/15 23:22:47 by elfamoso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	size_t			index;
 	char			*mapped;
 
-	mapped = ft_strnew(size + 1);
+	mapped = malloc(sizeof(char) * (size + 1));
 	if (mapped == NULL)
 		return (NULL);
 	index = 0;
@@ -27,5 +27,6 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 		mapped[index] = f(index, s[index]);
 		index++;
 	}
+	mapped[index] = '\0';
 	return (mapped);
 }

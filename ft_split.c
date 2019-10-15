@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsplit.c                                      :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/24 17:53:11 by tony              #+#    #+#             */
-/*   Updated: 2019/10/13 02:09:03 by bbellavi         ###   ########.fr       */
+/*   Updated: 2019/10/15 23:26:34 by elfamoso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,13 @@ static char		*ft_strndup(const char *s, size_t len)
 	char *string;
 	char *begin;
 
-	string = ft_strnew(len + 1);
+	string = malloc(sizeof(char) * (len + 1));
 	if (string == NULL)
 		return (NULL);
 	begin = string;
 	while (len-- != 0 && *s)
 		*string++ = *s++;
+	*string = '\0';
 	return (begin);
 }
 

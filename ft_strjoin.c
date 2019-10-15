@@ -6,7 +6,7 @@
 /*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/20 15:17:58 by tony              #+#    #+#             */
-/*   Updated: 2019/10/08 14:04:36 by bbellavi         ###   ########.fr       */
+/*   Updated: 2019/10/15 23:28:54 by elfamoso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	char			*begin;
 	char			*concat;
 
-	concat = ft_strnew(s1_len + s2_len + 1);
+	concat = malloc(sizeof(char) * (s1_len + s2_len + 1));
 	if (concat == NULL)
 		return (NULL);
 	begin = concat;
@@ -27,5 +27,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		*concat++ = *s1++;
 	while (*s2)
 		*concat++ = *s2++;
+	*concat = '\0';
 	return (begin);
 }

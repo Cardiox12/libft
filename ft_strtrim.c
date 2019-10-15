@@ -6,7 +6,7 @@
 /*   By: bbellavi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/13 02:04:34 by bbellavi          #+#    #+#             */
-/*   Updated: 2019/10/15 16:24:18 by bbellavi         ###   ########.fr       */
+/*   Updated: 2019/10/15 23:14:00 by elfamoso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int	ft_isinset(const char *set, int c)
 {
 	unsigned char uchar;
-	
+
 	uchar = (unsigned char)c;
 	while (*set)
 	{
@@ -38,10 +38,10 @@ char	*ft_strtrim(char const *s, char const *set)
 	right = end;
 	while (ft_isinset(set, s[left]) && s[left])
 		left++;
-	while (ft_isinset(set, s[right - 1]) && right - 1 >= 0)
+	while (ft_isinset(set, s[right - 1]) && right - 1 > 0)
 		right--;
 	size = right - left;
-	if ((new = malloc(sizeof(char) * (size+ 1))) == NULL)
+	if (size <= 0 || (new = malloc(sizeof(char) * (size + 1))) == NULL)
 		return (NULL);
 	ft_memcpy(new, &s[left], size);
 	new[size] = '\0';
