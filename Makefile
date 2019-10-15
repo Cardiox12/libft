@@ -6,7 +6,7 @@
 #    By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/09 09:34:32 by bbellavi          #+#    #+#              #
-#    Updated: 2019/10/12 18:13:15 by elfamoso         ###   ########.fr        #
+#    Updated: 2019/10/15 14:53:51 by bbellavi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,9 +16,6 @@ INC_DIR = .
 INC_F	= $(INC_DIR)/libft.h
 SRC_DIR = srcs
 SRCS	= ft_strlen.c
-SRCS	+= ft_isset_bonus.c
-SRCS	+= ft_strisset_bonus.c
-SRCS	+= ft_isspace_bonus.c
 SRCS	+= ft_memset.c
 SRCS	+= ft_bzero.c
 SRCS	+= ft_memcpy.c
@@ -47,21 +44,27 @@ SRCS	+= ft_putstr_fd.c
 SRCS	+= ft_putchar_fd.c
 SRCS	+= ft_putendl_fd.c
 SRCS	+= ft_putnbr_fd.c
-SRCS	+= ft_lstnew_bonus.c
-SRCS	+= ft_lstdelone_bonus.c
-SRCS	+= ft_lstadd_front_bonus.c
-SRCS	+= ft_lstadd_back_bonus.c
-SRCS	+= ft_lstclear_bonus.c
-SRCS	+= ft_lstiter_bonus.c
-SRCS	+= ft_lstmap_bonus.c
-SRCS	+= ft_lstsize_bonus.c
-SRCS	+= ft_lstlast_bonus.c
-SRCS	+= ft_strnew_bonus.c
 SRCS	+= ft_strlcpy.c
-SRCS	+= ft_strncpy_bonus.c
-SRCS	+= ft_strcpy_bonus.c
 SRCS	+= ft_calloc.c
-OBJS	= $(SRCS:.c=.o)
+
+
+SRCS_BONUS	= ft_lstnew_bonus.c
+SRCS_BONUS	+= ft_lstdelone_bonus.c
+SRCS_BONUS	+= ft_lstadd_front_bonus.c
+SRCS_BONUS	+= ft_lstadd_back_bonus.c
+SRCS_BONUS	+= ft_lstclear_bonus.c
+SRCS_BONUS	+= ft_lstiter_bonus.c
+SRCS_BONUS	+= ft_lstmap_bonus.c
+SRCS_BONUS	+= ft_lstsize_bonus.c
+SRCS_BONUS	+= ft_lstlast_bonus.c
+SRCS_BONUS	+= ft_strnew_bonus.c
+SRCS_BONUS	+= ft_strcpy_bonus.c
+SRCS_BONUS	+= ft_isset_bonus.c
+SRCS_BONUS	+= ft_strisset_bonus.c
+SRCS_BONUS	+= ft_isspace_bonus.c
+
+OBJS		= $(SRCS:.c=.o)
+OBJS_BONUS	= $(SRCS_BONUS:.c=.o)
 NAME	= libft.a
 
 .PHONY: clean fclean re
@@ -75,8 +78,12 @@ $(NAME): $(OBJS) $(INC_F)
 %.o: %.c $(INC_F)
 	$(CC) $(CFLAGS) -o $@ -c $< -I $(INC_DIR)
 
+bonus: $(OBJS_BONUS)
+	ar rc $(NAME) $?
+	ranlib $(NAME)
+
 clean:
-	rm -rf $(OBJS)
+	rm -rf $(OBJS) $(OBJS_BONUS)
 
 fclean: clean
 	rm -rf $(NAME)

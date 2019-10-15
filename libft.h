@@ -5,8 +5,7 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/09 09:38:47 by bbellavi          #+#    #+#             */
-/*   Updated: 2019/10/13 02:59:20 by bbellavi         ###   ########.fr       */
+/*   Updated: 2019/10/15 14:53:37 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +70,6 @@ t_list			*ft_lstmap(t_list *lst, void *(*f)(void *));
 char			*ft_strnew(size_t size);
 int				ft_isset(int c, const char *set);
 int				ft_strisset(const char *str, const char *set);
-char			*ft_strncpy(char *dst, const char *src, size_t len);
 char			*ft_strcpy(char *dst, const char *src);
 
 #	endif
