@@ -6,7 +6,7 @@
 /*   By: bbellavi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/13 02:04:34 by bbellavi          #+#    #+#             */
-/*   Updated: 2019/10/15 23:14:00 by elfamoso         ###   ########.fr       */
+/*   Updated: 2019/10/16 15:57:32 by elfamoso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ char	*ft_strtrim(char const *s, char const *set)
 	while (ft_isinset(set, s[right - 1]) && right - 1 > 0)
 		right--;
 	size = right - left;
-	if (size <= 0 || (new = malloc(sizeof(char) * (size + 1))) == NULL)
+	size = (size <= 0) ? 0 : size;
+	if ((new = malloc(sizeof(char) * (size + 1))) == NULL)
 		return (NULL);
 	ft_memcpy(new, &s[left], size);
 	new[size] = '\0';
