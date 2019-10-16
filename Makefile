@@ -6,7 +6,7 @@
 #    By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/09 09:34:32 by bbellavi          #+#    #+#              #
-#    Updated: 2019/10/15 16:24:29 by bbellavi         ###   ########.fr        #
+#    Updated: 2019/10/16 15:45:19 by elfamoso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -78,7 +78,7 @@ $(NAME): $(OBJS) $(INC_F)
 %.o: %.c $(INC_F)
 	$(CC) $(CFLAGS) -o $@ -c $< -I $(INC_DIR)
 
-bonus: $(OBJS_BONUS)
+bonus: $(OBJS) $(OBJS_BONUS)
 	ar rc $(NAME) $?
 	ranlib $(NAME)
 
