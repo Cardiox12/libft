@@ -6,37 +6,36 @@
 /*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/16 12:37:25 by tony              #+#    #+#             */
-/*   Updated: 2019/10/16 17:46:26 by bbellavi         ###   ########.fr       */
+/*   Updated: 2019/10/17 01:25:02 by elfamoso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#define BUFF_SIZE 8
+#include "libft.h"
+
+static size_t	ft_strnlen(char *s, size_t maxlen)
+{
+	const char *final_s = s;
+
+	while (maxlen-- != 0 && *s)
+		s++;
+	return (s - final_s);
+}
 
 size_t		ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
+	size_t src_len;
 	size_t size;
+	size_t size_to_cpy;
 
-	size = dstsize - strlen(dst);
-	if (size == 0)
-		return (strlen(dst) + strlen(src));
-	while (size <= dstsize)
+	size = ft_strnlen(dst, dstsize);
+	src_len = ft_strlen(src);
+	if (size != dstsize)
 	{
-		dst[size] = *src++;
-		size++;
+		size_to_cpy = dstsize - size - 1;
+		if (size_to_cpy > src_len)
+			size_to_cpy = src_len;
+		ft_memcpy(dst + size, src, size_to_cpy);
+		dst[size + size_to_cpy] = '\0';
 	}
-	return (0);
-}
-
-int		main(int argc, char **argv)
-{
-	if (argc > 1)
-	{
-		char dst[BUFF_SIZE] = "toto";
-
-		printf("Original ft_strlen : %lu\n", ft_strlcat(dst, argv[1], BUFF_SIZE));
-		printf("Original strlen : %lu\n", ft_strlcat(dst, argv[1], BUFF_SIZE));
-	}
+	return (size + src_len);
 }
