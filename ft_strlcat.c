@@ -6,36 +6,37 @@
 /*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/16 12:37:25 by tony              #+#    #+#             */
-/*   Updated: 2019/10/08 14:10:47 by bbellavi         ###   ########.fr       */
+/*   Updated: 2019/10/16 17:46:26 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#define BUFF_SIZE 8
 
 size_t		ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	const char	*s = src;
-	char		*d;
-	size_t		n;
-	size_t		dlen;
+	size_t size;
 
-	n = dstsize;
-	d = dst;
-	while (n-- != 0 && *d != '\0')
-		d++;
-	dlen = d - dst;
-	n = dstsize - dlen;
-	if (n == 0)
-		return (dlen + ft_strlen(s));
-	while (*s != '\0')
+	size = dstsize - strlen(dst);
+	if (size == 0)
+		return (strlen(dst) + strlen(src));
+	while (size <= dstsize)
 	{
-		if (n != 1)
-		{
-			*d++ = *s;
-			n--;
-		}
-		s++;
+		dst[size] = *src++;
+		size++;
 	}
-	*d = '\0';
-	return (dlen + (s - src));
+	return (0);
+}
+
+int		main(int argc, char **argv)
+{
+	if (argc > 1)
+	{
+		char dst[BUFF_SIZE] = "toto";
+
+		printf("Original ft_strlen : %lu\n", ft_strlcat(dst, argv[1], BUFF_SIZE));
+		printf("Original strlen : %lu\n", ft_strlcat(dst, argv[1], BUFF_SIZE));
+	}
 }
