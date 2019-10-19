@@ -6,7 +6,7 @@
 /*   By: bbellavi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 13:46:14 by bbellavi          #+#    #+#             */
-/*   Updated: 2019/10/08 13:46:17 by bbellavi         ###   ########.fr       */
+/*   Updated: 2019/10/18 00:29:44 by elfamoso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int		is_space(char c)
 				c == '\f' || c == '\r' || c == ' ') ? 1 : 0);
 }
 
-int		ft_atoi(char *str)
+int		ft_atoi(const char *str)
 {
 	int sign;
 	int result;
