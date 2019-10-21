@@ -6,7 +6,7 @@
 /*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/16 12:37:25 by tony              #+#    #+#             */
-/*   Updated: 2019/10/17 01:25:02 by elfamoso         ###   ########.fr       */
+/*   Updated: 2019/10/21 14:51:04 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static size_t	ft_strnlen(char *s, size_t maxlen)
 	return (s - final_s);
 }
 
-size_t		ft_strlcat(char *dst, const char *src, size_t dstsize)
+size_t			ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
 	size_t src_len;
 	size_t size;

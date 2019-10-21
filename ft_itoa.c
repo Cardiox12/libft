@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bbellavi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 13:50:47 by bbellavi          #+#    #+#             */
-/*   Updated: 2019/10/15 23:43:47 by elfamoso         ###   ########.fr       */
+/*   Updated: 2019/10/21 14:59:26 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,7 @@ char			*ft_itoa(int n)
 	number[number_size] = '\0';
 	end = 0;
 	if (n == INT_MIN)
-	{
-		ft_memcpy(number, "-2147483648\0", 12);
-		return (number);
-	}
+		return (ft_memcpy(number, "-2147483648", 12));
 	if (n < 0)
 	{
 		n = -n;

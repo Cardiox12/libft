@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bbellavi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/13 02:04:34 by bbellavi          #+#    #+#             */
-/*   Updated: 2019/10/16 15:57:32 by elfamoso         ###   ########.fr       */
+/*   Updated: 2019/10/21 14:57:41 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int	ft_isinset(const char *set, int c)
 	return (0);
 }
 
-char	*ft_strtrim(char const *s, char const *set)
+char		*ft_strtrim(char const *s, char const *set)
 {
 	const size_t	end = ft_strlen(s);
 	int				left;
