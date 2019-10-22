@@ -6,7 +6,7 @@
 /*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 13:54:48 by bbellavi          #+#    #+#             */
-/*   Updated: 2019/10/21 14:48:50 by bbellavi         ###   ########.fr       */
+/*   Updated: 2019/10/22 14:59:49 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list *new_list;
 	t_list *begin;
 	t_list *tmp;
 
@@ -26,14 +25,15 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		{
 			if (tmp == NULL)
 			{
-				ft_lstiter(begin, del);
+				ft_lstclear(&begin, del);
 				return (NULL);
 			}
-			ft_lstadd_back(&new_list, tmp);
+			ft_lstadd_back(&begin, tmp);
 			lst = lst->next;
-			tmp = ft_lstnew(f(lst->content));
+			if (lst != NULL)
+				tmp = ft_lstnew(f(lst->content));
 		}
-		return (new_list);
+		return (begin);
 	}
 	return (NULL);
 }

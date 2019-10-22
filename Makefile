@@ -6,7 +6,7 @@
 #    By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/09 09:34:32 by bbellavi          #+#    #+#              #
-#    Updated: 2019/10/16 15:45:19 by elfamoso         ###   ########.fr        #
+#    Updated: 2019/10/22 14:53:39 by bbellavi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,10 @@ SRCS	+= ft_strrchr.c
 SRCS	+= ft_strnstr.c
 SRCS	+= ft_strncmp.c
 SRCS	+= ft_atoi.c
+SRCS	+= ft_itoa.c
 SRCS	+= ft_isalpha.c
+SRCS	+= ft_isascii.c
+SRCS	+= ft_isalnum.c
 SRCS	+= ft_isdigit.c
 SRCS	+= ft_toupper.c
 SRCS	+= ft_tolower.c
