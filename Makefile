@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+         #
+#    By: bbellavi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2019/10/09 09:34:32 by bbellavi          #+#    #+#              #
-#    Updated: 2019/10/22 14:53:39 by bbellavi         ###   ########.fr        #
+#    Created: 2019/10/28 16:24:33 by bbellavi          #+#    #+#              #
+#    Updated: 2019/10/28 16:24:37 by bbellavi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,20 +70,18 @@ OBJS		= $(SRCS:.c=.o)
 OBJS_BONUS	= $(SRCS_BONUS:.c=.o)
 NAME	= libft.a
 
-.PHONY: clean fclean re
+.PHONY: clean fclean re all
 
 all: $(NAME)
 
 $(NAME): $(OBJS) $(INC_F)
-	ar rc $@ $?
-	ranlib $@
+	ar rcs $@ $?
 
 %.o: %.c $(INC_F)
 	$(CC) $(CFLAGS) -o $@ -c $< -I $(INC_DIR)
 
 bonus: $(OBJS) $(OBJS_BONUS)
-	ar rc $(NAME) $?
-	ranlib $(NAME)
+	ar rcs $(NAME) $?
 
 clean:
 	rm -rf $(OBJS) $(OBJS_BONUS)
