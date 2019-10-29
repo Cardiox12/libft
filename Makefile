@@ -45,7 +45,8 @@ $(NAME): $(OBJ)
 all: $(NAME)
 
 bonus: $(NAME) $(OBJ_B) 
-	ar -rcs $(NAME) $^
+	@echo 'Add bonus to $(NAME)'
+	@ar -rcs $(NAME) $^
 
 clean:
 	rm -rf $(DIR)
@@ -56,16 +57,18 @@ fclean: clean
 re: fclean all
 
 $(DEP_DIR):
-	@mkdir $@
+	mkdir $@
 
 $(OBJ_DIR):
-	@mkdir $@
+	mkdir $@
 
 $(OBJ_DIR)/%.o: %.c | $(DIR)
-	$(CC) $(CFLAGS) $(DFLAGS) -c $< -o $@
+	@echo 'Compilation of $<'
+	@$(CC) $(CFLAGS) $(DFLAGS) -c $< -o $@
 
 $(OBJ_DIR)/%bonus.o: %.c | $(DIR)
-	$(CC) $(CFLAGS) $(DFLAGS) -c $< -o $@
+	@echo 'Compilation of $<'
+	@$(CC) $(CFLAGS) $(DFLAGS) -c $< -o $@
 
 -include $(DEP)
 
