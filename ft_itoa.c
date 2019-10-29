@@ -6,7 +6,7 @@
 /*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 13:50:47 by bbellavi          #+#    #+#             */
-/*   Updated: 2019/10/21 14:59:26 by bbellavi         ###   ########.fr       */
+/*   Updated: 2019/10/29 15:18:46 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static size_t	ft_get_number_len(int nb)
 	counter = 0;
 	if (nb < 0)
 	{
-		if (nb == INT_MIN)
+		if (nb == -2147483648)
 			return (10);
 		nb = -nb;
 	}
@@ -42,7 +42,7 @@ char			*ft_itoa(int n)
 		return (NULL);
 	number[number_size] = '\0';
 	end = 0;
-	if (n == INT_MIN)
+	if (n == -2147483648)
 		return (ft_memcpy(number, "-2147483648", 12));
 	if (n < 0)
 	{
