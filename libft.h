@@ -6,7 +6,7 @@
 /*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/15 14:53:37 by bbellavi          #+#    #+#             */
-/*   Updated: 2019/10/22 15:31:51 by bbellavi         ###   ########.fr       */
+/*   Updated: 2019/10/28 22:58:38 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,9 +70,5 @@ void			ft_lstclear(t_list **lst, void (*del)(void*));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 				void (*del)(void *));
-char			*ft_strnew(size_t size);
-int				ft_isset(int c, const char *set);
-int				ft_strisset(const char *str, const char *set);
-char			*ft_strcpy(char *dst, const char *src);
 
 #	endif

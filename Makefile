@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: bbellavi <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/28 16:24:33 by bbellavi          #+#    #+#              #
-#    Updated: 2019/10/28 16:24:37 by bbellavi         ###   ########.fr        #
+#    Updated: 2019/10/28 22:55:28 by bbellavi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,11 +60,6 @@ SRCS_BONUS	+= ft_lstiter_bonus.c
 SRCS_BONUS	+= ft_lstmap_bonus.c
 SRCS_BONUS	+= ft_lstsize_bonus.c
 SRCS_BONUS	+= ft_lstlast_bonus.c
-SRCS_BONUS	+= ft_strnew_bonus.c
-SRCS_BONUS	+= ft_strcpy_bonus.c
-SRCS_BONUS	+= ft_isset_bonus.c
-SRCS_BONUS	+= ft_strisset_bonus.c
-SRCS_BONUS	+= ft_isspace_bonus.c
 
 OBJS		= $(SRCS:.c=.o)
 OBJS_BONUS	= $(SRCS_BONUS:.c=.o)
