@@ -6,7 +6,7 @@
 /*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/22 15:36:15 by bbellavi          #+#    #+#             */
-/*   Updated: 2019/10/22 15:36:18 by bbellavi         ###   ########.fr       */
+/*   Updated: 2019/10/30 17:08:02 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 
 	if (*needle == '\0' || len == 0)
 		return ((*needle == '\0') ? (char*)haystack : NULL);
-	while (*haystack && len-- > 0)
+	while (*haystack && len > 0)
 	{
 		begin = (char*)haystack;
 		if (*haystack == *needle)
@@ -36,6 +36,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 		else
 			haystack++;
 		needle = (char*)to_find;
+		len--;
 	}
 	return (NULL);
 }

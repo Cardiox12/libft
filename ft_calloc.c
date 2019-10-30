@@ -6,7 +6,7 @@
 /*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 12:56:20 by bbellavi          #+#    #+#             */
-/*   Updated: 2019/10/21 14:48:36 by bbellavi         ###   ########.fr       */
+/*   Updated: 2019/10/30 14:40:12 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ void	*ft_calloc(size_t count, size_t size)
 {
 	void *ptr;
 
-	if (count == 0 || size == 0)
-		return (NULL);
 	ptr = malloc(size * count);
 	if (ptr == NULL)
 		return (NULL);

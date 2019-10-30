@@ -6,11 +6,11 @@
 /*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 13:46:14 by bbellavi          #+#    #+#             */
-/*   Updated: 2019/10/28 16:27:29 by bbellavi         ###   ########.fr       */
+/*   Updated: 2019/10/30 14:18:01 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static int	is_space(char c)
+static int	ft_is_space(char c)
 {
 	return ((c == '\n' || c == '\t' || c == '\v' ||
 				c == '\f' || c == '\r' || c == ' ') ? 1 : 0);
@@ -23,7 +23,7 @@ int			ft_atoi(const char *str)
 
 	sign = 1;
 	result = 0;
-	while (is_space(*str))
+	while (ft_is_space(*str))
 		str++;
 	if (*str == '-' || *str == '+')
 	{
