@@ -6,7 +6,7 @@
 /*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/22 15:39:01 by bbellavi          #+#    #+#             */
-/*   Updated: 2019/10/22 15:39:02 by bbellavi         ###   ########.fr       */
+/*   Updated: 2019/11/03 16:41:58 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,14 @@ static size_t	ft_strlen_to_sep(const char *s, char c)
 	return (s - final_s);
 }
 
-static char		**ft_alloc_2d_array(size_t size)
+static void		free_strings_array(char **strings, size_t size)
 {
-	char **strings;
+	size_t index;
 
-	strings = malloc(sizeof(char*) * size);
-	if (strings == NULL)
-		return (NULL);
-	return (strings);
+	index = 0;
+	while (index < size)
+		free(strings[index++]);
+	*strings = NULL;
 }
 
 static char		*ft_strndup(const char *s, size_t len)
@@ -71,16 +71,18 @@ char			**ft_split(char const *s, char c)
 	size_t	index;
 
 	index = 0;
-	strings = ft_alloc_2d_array(ft_count_substr(s, c) + 1);
-	if (strings == NULL)
+	if ((strings = malloc(sizeof(char*) * (ft_count_substr(s, c) + 1))) == NULL)
 		return (NULL);
-	while (*s)
+	while (*s != '\0')
 	{
 		if (*s != c)
 		{
 			strings[index] = ft_strndup(s, ft_strlen_to_sep(s, c));
-			if (strings == NULL)
+			if (strings[index] == NULL)
+			{
+				free_strings_array(strings, index);
 				return (NULL);
+			}
 			while (*s && *s != c)
 				s++;
 			index++;
