@@ -39,14 +39,12 @@ CFLAGS	= -Wall -Wextra -Werror
 DFLAGS	= -MP -MMD -MF $(DEP_DIR)/$*.d -MT '$@'
 
 $(NAME): $(OBJ)
-	@echo 'Creation of $@'
-	@ar -rcs $@ $^
+	ar -rcs $@ $^
 
 all: $(NAME)
 
 bonus: $(NAME) $(OBJ_B) 
-	@echo 'Add bonus to $(NAME)'
-	@ar -rcs $(NAME) $^
+	ar -rcs $(NAME) $^
 
 clean:
 	rm -rf $(DIR)
@@ -63,12 +61,10 @@ $(OBJ_DIR):
 	mkdir $@
 
 $(OBJ_DIR)/%.o: %.c | $(DIR)
-	@echo 'Compilation of $<'
-	@$(CC) $(CFLAGS) $(DFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) $(DFLAGS) -c $< -o $@
 
 $(OBJ_DIR)/%bonus.o: %.c | $(DIR)
-	@echo 'Compilation of $<'
-	@$(CC) $(CFLAGS) $(DFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) $(DFLAGS) -c $< -o $@
 
 -include $(DEP)
 
