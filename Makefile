@@ -3,69 +3,90 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: bbellavi <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: tony <tony@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2019/10/29 15:30:54 by bbellavi          #+#    #+#              #
-#    Updated: 2019/10/29 15:37:45 by bbellavi         ###   ########.fr        #
+#    Created: 2020/04/30 09:59:18 by tony              #+#    #+#              #
+#    Updated: 2020/04/30 09:59:18 by tony             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# DIRECTORIES
-DEP_DIR	= dep
-OBJ_DIR	= obj
-DIR		= $(DEP_DIR) $(OBJ_DIR)
+COLOR_NC			= \e[0m
+COLOR_LIGHT_GREEN	= \e[1;32m
 
-# FILES
-NAME	= libft.a
-SRC		= ft_isalnum.c ft_isdigit.c ft_memccpy.c ft_memset.c \
-		ft_atoi.c ft_isalpha.c ft_isprint.c ft_memcpy.c ft_bzero.c \
-		ft_isascii.c ft_memmove.c ft_strlen.c ft_memcmp.c \
-		ft_strdup.c ft_calloc.c ft_strmapi.c ft_strlcpy.c \
-		ft_strlcat.c ft_strchr.c ft_strrchr.c ft_putnbr_fd.c \
-		ft_strnstr.c ft_strncmp.c ft_memchr.c \
-		ft_tolower.c ft_toupper.c \
-		ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c \
-		ft_itoa.c ft_putchar_fd.c ft_putendl_fd.c ft_putstr_fd.c
-BONUS	= ft_lstadd_front_bonus.c ft_lstsize_bonus.c ft_lstlast_bonus.c \
-		ft_lstnew_bonus.c ft_lstdelone_bonus.c ft_lstclear_bonus.c \
-		ft_lstmap_bonus.c ft_lstadd_back_bonus.c ft_lstiter_bonus.c
-DEP		:= $(SRC:%.c=$(DEP_DIR)/%.d)
-OBJ		:= $(SRC:%.c=$(OBJ_DIR)/%.o)
-OBJ_B	:= $(BONUS:%.c=$(OBJ_DIR)/%.o)
+CC			= gcc
+NAME		= libft.a
+CFLAGS		= -Wall -Werror -Wextra -g
 
-# COMPILATION
-CC		= gcc
-CFLAGS	= -Wall -Wextra -Werror
-DFLAGS	= -MP -MMD -MF $(DEP_DIR)/$*.d -MT '$@'
+INCLUDES	= includes
+INC_FILES	= $(INCLUDES)/ft_stdio.h\
+$(INCLUDES)/ft_strings.h\
+$(INCLUDES)/ft_stdlib.h\
+$(INCLUDES)/ft_ctypes.h\
 
-$(NAME): $(OBJ)
-	ar -rcs $@ $^
+BASE_DIR	= src
+STDIO_DIR	= $(BASE_DIR)/ft_stdio
+STRING_DIR	= $(BASE_DIR)/ft_strings
+STDLIB_DIR	= $(BASE_DIR)/ft_stdlib
+CTYPES_DIR	= $(BASE_DIR)/ft_ctypes
+
+SRCS	= $(STDIO_DIR)/ft_putchar_fd.c
+SRCS	= $(STDIO_DIR)/ft_putendl_fd.c
+SRCS	+= $(STDIO_DIR)/ft_putstr_fd.c
+SRCS	+= $(STDIO_DIR)/ft_putnbr_fd.c
+
+SRCS	+= $(STRING_DIR)/ft_bzero.c
+SRCS	+= $(STRING_DIR)/ft_memccpy.c
+SRCS	+= $(STRING_DIR)/ft_memchr.c
+SRCS	+= $(STRING_DIR)/ft_memcmp.c
+SRCS	+= $(STRING_DIR)/ft_memcpy.c
+SRCS	+= $(STRING_DIR)/ft_memmove.c
+SRCS	+= $(STRING_DIR)/ft_memset.c
+SRCS	+= $(STRING_DIR)/ft_split.c
+SRCS	+= $(STRING_DIR)/ft_strchr.c
+SRCS	+= $(STRING_DIR)/ft_strdup.c
+SRCS	+= $(STRING_DIR)/ft_strjoin.c
+SRCS	+= $(STRING_DIR)/ft_strlcat.c
+SRCS	+= $(STRING_DIR)/ft_strlcpy.c
+SRCS	+= $(STRING_DIR)/ft_strlen.c
+SRCS	+= $(STRING_DIR)/ft_strmapi.c
+SRCS	+= $(STRING_DIR)/ft_strncmp.c
+SRCS	+= $(STRING_DIR)/ft_strnstr.c
+SRCS	+= $(STRING_DIR)/ft_strrchr.c
+SRCS	+= $(STRING_DIR)/ft_strtrim.c
+SRCS	+= $(STRING_DIR)/ft_substr.c
+SRCS	+= $(STRING_DIR)/ft_tolower.c
+SRCS	+= $(STRING_DIR)/ft_toupper.c
+
+SRCS	+= $(STDLIB_DIR)/ft_atoi.c
+SRCS	+= $(STDLIB_DIR)/ft_calloc.c
+SRCS	+= $(STDLIB_DIR)/ft_itoa.c
+
+SRCS	+= $(CTYPES_DIR)/ft_isalnum.c
+SRCS	+= $(CTYPES_DIR)/ft_isalpha.c
+SRCS	+= $(CTYPES_DIR)/ft_isascii.c
+SRCS	+= $(CTYPES_DIR)/ft_isdigit.c
+SRCS	+= $(CTYPES_DIR)/ft_isprint.c
+
+
+OBJS	= $(SRCS:.c=.o)
+.PHONY: all re clean fclean
 
 all: $(NAME)
 
-bonus: $(NAME) $(OBJ_B) 
-	ar -rcs $(NAME) $^
+$(NAME): $(OBJS)
+	@printf "$(COLOR_LIGHT_GREEN)Building library$(COLOR_NC)\n"
+	@ar -rcs $@ $?
+
+%.o: %.c
+	@printf "$(COLOR_LIGHT_GREEN)Compiling $(@:.o=) $(COLOR_NC)\n"
+	@$(CC) $(CFLAGS) -o $@ -c $< -I $(INCLUDES)
 
 clean:
-	rm -rf $(DIR)
+	@printf "$(COLOR_LIGHT_GREEN)Removing objects files$(COLOR_NC)\n"
+	@rm -rf $(OBJS)
 
 fclean: clean
-	rm -f $(NAME)
+	@printf "$(COLOR_LIGHT_GREEN)Removing library$(COLOR_NC)\n"
+	@rm -rf $(NAME)
 
 re: fclean all
-
-$(DEP_DIR):
-	mkdir $@
-
-$(OBJ_DIR):
-	mkdir $@
-
-$(OBJ_DIR)/%.o: %.c | $(DIR)
-	$(CC) $(CFLAGS) $(DFLAGS) -c $< -o $@
-
-$(OBJ_DIR)/%bonus.o: %.c | $(DIR)
-	$(CC) $(CFLAGS) $(DFLAGS) -c $< -o $@
-
--include $(DEP)
-
-.PHONY: all clean fclean re
