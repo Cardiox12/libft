@@ -6,11 +6,18 @@
 /*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/09 05:21:46 by bbellavi          #+#    #+#             */
-/*   Updated: 2020/06/09 05:27:54 by bbellavi         ###   ########.fr       */
+/*   Updated: 2020/06/09 05:41:07 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_stdlib.h"
+
+/*
+**	Garbage_add_ref
+**
+**	Add reference passed in parameter.
+**	It allocate and add new Ref_List node to the current garbage.
+*/
 
 t_Ref_List	*garbage_add_ref(void *p)
 {

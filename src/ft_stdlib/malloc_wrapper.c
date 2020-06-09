@@ -6,11 +6,17 @@
 /*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/09 05:25:37 by bbellavi          #+#    #+#             */
-/*   Updated: 2020/06/09 05:30:06 by bbellavi         ###   ########.fr       */
+/*   Updated: 2020/06/09 05:45:56 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_stdlib.h"
+
+/*
+**	Malloc_wrapper
+**
+**	Call malloc (3) and add the reference to the current garbage.
+*/
 
 void	*malloc_wrapper(size_t size)
 {
