@@ -6,7 +6,7 @@
 /*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/09 05:24:40 by bbellavi          #+#    #+#             */
-/*   Updated: 2020/06/09 05:28:24 by bbellavi         ###   ########.fr       */
+/*   Updated: 2020/06/09 05:32:33 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,10 @@ void	garbage_free_all(void)
 		{
 			old = cur;
 			cur = cur->next;
-			free(old->ref);
-			free(old);
+			if (old->ref != NULL)
+				free(old->ref);
+			if (old != NULL)
+				free(old);
 		}
 	}
 }
