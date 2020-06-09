@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ctypes.h                                        :+:      :+:    :+:   */
+/*   malloc_wrapper.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/30 09:46:42 by tony              #+#    #+#             */
-/*   Updated: 2020/06/09 03:29:45 by bbellavi         ###   ########.fr       */
+/*   Created: 2020/06/09 05:25:37 by bbellavi          #+#    #+#             */
+/*   Updated: 2020/06/09 05:30:06 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_CTYPES_H
-# define FT_CTYPES_H
+#include "ft_stdlib.h"
 
-int		ft_isalnum(int c);
-int		ft_isalpha(int c);
-int		ft_isascii(int c);
-int		ft_isdigit(int c);
-int		ft_isprint(int c);
+void	*malloc_wrapper(size_t size)
+{
+	void *p;
 
-#endif
+	if ((p = malloc(size)) == NULL)
+		return (NULL);
+	if (garbage_add_ref(p) == NULL)
+	{
+		free(p);
+		return (NULL);
+	}
+	return (p);
+}

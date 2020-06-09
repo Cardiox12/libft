@@ -1,22 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ctypes.h                                        :+:      :+:    :+:   */
+/*   garbage_free.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/30 09:46:42 by tony              #+#    #+#             */
-/*   Updated: 2020/06/09 03:29:45 by bbellavi         ###   ########.fr       */
+/*   Created: 2020/06/09 05:23:42 by bbellavi          #+#    #+#             */
+/*   Updated: 2020/06/09 05:29:31 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_CTYPES_H
-# define FT_CTYPES_H
+#include "ft_stdlib.h"
 
-int		ft_isalnum(int c);
-int		ft_isalpha(int c);
-int		ft_isascii(int c);
-int		ft_isdigit(int c);
-int		ft_isprint(int c);
+void	garbage_free(void *p)
+{
+	t_Ref_List *cur;
 
-#endif
+	if (g_garbage.refs != NULL)
+	{
+		cur = g_garbage.refs;
+		while (cur != NULL)
+		{
+			if (cur->ref == p)
+			{
+				free(cur->ref);
+				cur->ref = NULL;
+				break ;
+			}
+			cur = cur->next;
+		}
+	}
+}

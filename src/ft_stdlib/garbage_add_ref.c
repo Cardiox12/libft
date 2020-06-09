@@ -1,22 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ctypes.h                                        :+:      :+:    :+:   */
+/*   garbage_add_ref.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/30 09:46:42 by tony              #+#    #+#             */
-/*   Updated: 2020/06/09 03:29:45 by bbellavi         ###   ########.fr       */
+/*   Created: 2020/06/09 05:21:46 by bbellavi          #+#    #+#             */
+/*   Updated: 2020/06/09 05:27:54 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_CTYPES_H
-# define FT_CTYPES_H
+#include "ft_stdlib.h"
 
-int		ft_isalnum(int c);
-int		ft_isalpha(int c);
-int		ft_isascii(int c);
-int		ft_isdigit(int c);
-int		ft_isprint(int c);
+t_Ref_List	*garbage_add_ref(void *p)
+{
+	t_Ref_List *cur;
+	t_Ref_List *tmp;
 
-#endif
+	tmp = malloc(sizeof(t_Garbage));
+	if (tmp == NULL)
+		return (NULL);
+	g_garbage.length++;
+	tmp->ref = p;
+	if (g_garbage.refs == NULL)
+	{
+		tmp->next = NULL;
+		g_garbage.refs = tmp;
+	}
+	else
+	{
+		cur = g_garbage.refs;
+		while (cur->next != NULL)
+			cur = cur->next;
+		cur->next = tmp;
+	}
+	return (tmp);
+}

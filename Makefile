@@ -60,6 +60,10 @@ SRCS	+= $(STRING_DIR)/ft_toupper.c
 SRCS	+= $(STDLIB_DIR)/ft_atoi.c
 SRCS	+= $(STDLIB_DIR)/ft_calloc.c
 SRCS	+= $(STDLIB_DIR)/ft_itoa.c
+SRCS	+= $(STDLIB_DIR)/garbage_add_ref.c
+SRCS	+= $(STDLIB_DIR)/garbage_free_all.c
+SRCS	+= $(STDLIB_DIR)/garbage_free.c
+SRCS	+= $(STDLIB_DIR)/malloc_wrapper.c
 
 SRCS	+= $(CTYPES_DIR)/ft_isalnum.c
 SRCS	+= $(CTYPES_DIR)/ft_isalpha.c
@@ -73,7 +77,7 @@ OBJS	= $(SRCS:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) $(INC_FILES)
 	@printf "$(COLOR_LIGHT_GREEN)Building library$(COLOR_NC)\n"
 	@ar -rcs $@ $?
 
