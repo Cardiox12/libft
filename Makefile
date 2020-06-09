@@ -57,13 +57,17 @@ SRCS	+= $(STRING_DIR)/ft_substr.c
 SRCS	+= $(STRING_DIR)/ft_tolower.c
 SRCS	+= $(STRING_DIR)/ft_toupper.c
 
+SRCS	+= $(STDLIB_DIR)/ft_realloc.c
 SRCS	+= $(STDLIB_DIR)/ft_atoi.c
 SRCS	+= $(STDLIB_DIR)/ft_calloc.c
 SRCS	+= $(STDLIB_DIR)/ft_itoa.c
 SRCS	+= $(STDLIB_DIR)/garbage_add_ref.c
 SRCS	+= $(STDLIB_DIR)/garbage_free_all.c
 SRCS	+= $(STDLIB_DIR)/garbage_free.c
+SRCS	+= $(STDLIB_DIR)/garbage_find_ref.c
+SRCS	+= $(STDLIB_DIR)/garbage_update_ref.c
 SRCS	+= $(STDLIB_DIR)/malloc_wrapper.c
+SRCS	+= $(STDLIB_DIR)/realloc_wrapper.c
 
 SRCS	+= $(CTYPES_DIR)/ft_isalnum.c
 SRCS	+= $(CTYPES_DIR)/ft_isalpha.c
