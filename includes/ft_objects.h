@@ -6,7 +6,7 @@
 /*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/13 08:01:05 by bbellavi          #+#    #+#             */
-/*   Updated: 2020/06/14 05:03:26 by bbellavi         ###   ########.fr       */
+/*   Updated: 2020/06/15 02:51:52 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,6 @@ enum	objects_errors
 
 void	string_list_create(t_string_list **str_list);
 int		string_list_insert(t_string_list *items, int index, const char *item);
+int		string_list_append(t_string_list *items, const char *item);
 
 #endif
