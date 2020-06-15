@@ -6,7 +6,7 @@
 /*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/13 08:22:13 by bbellavi          #+#    #+#             */
-/*   Updated: 2020/06/14 04:03:49 by bbellavi         ###   ########.fr       */
+/*   Updated: 2020/06/14 05:05:49 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,6 @@ void	string_list_create(t_string_list **str_list)
 		return ;
 	}
 	new->length = 0;
-	new->capacity = GROWTH_FACTOR;
-	new->items = malloc(sizeof(char*) * new->capacity);
-	if (new->items == NULL)
-	{
-		free(new);
-		*str_list = NULL;
-		return ;
-	}
-	ft_bzero(new->items, sizeof(char*) * new->capacity);
+	new->items = NULL;
 	*str_list = new;
 }
