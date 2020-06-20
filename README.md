@@ -6,6 +6,26 @@ With time I'm adding new functionnality like dynamic arrays, math function etc .
 ## References
 
 ### Math :
+```c
+typedef struct	s_vec
+{
+	int x;
+	int y;
+}				t_vec;
+
+typedef struct	s_vec2
+{
+	float x;
+	float y;
+}				t_vec2;
+
+typedef struct	s_vec3
+{
+	double x;
+	double y;
+}				t_vec3;
+```
+
 
 ### Objects :
 
