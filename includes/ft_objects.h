@@ -6,7 +6,7 @@
 /*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/13 08:01:05 by bbellavi          #+#    #+#             */
-/*   Updated: 2020/06/19 16:01:41 by bbellavi         ###   ########.fr       */
+/*   Updated: 2020/06/20 03:45:38 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,6 @@ void	string_list_create(t_string_list **str_list);
 int		string_list_insert(t_string_list *items, int index, const char *item);
 int		string_list_append(t_string_list *items, const char *item);
 int		string_list_pop(t_string_list *items, int index);
+int		string_list_pop_last(t_string_list *list);
 
 #endif

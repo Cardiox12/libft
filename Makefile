@@ -83,6 +83,7 @@ SRCS	+= $(OBJECTS_DIR)/StringList_init.c
 SRCS	+= $(OBJECTS_DIR)/StringList_insert.c
 SRCS	+= $(OBJECTS_DIR)/StringList_append.c
 SRCS	+= $(OBJECTS_DIR)/StringList_pop.c
+SRCS	+= $(OBJECTS_DIR)/StringList_pop_last.c
 
 OBJS	= $(SRCS:.c=.o)
 .PHONY: all re clean fclean
