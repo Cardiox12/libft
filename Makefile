@@ -15,19 +15,23 @@ COLOR_LIGHT_GREEN	= \e[1;32m
 
 CC			= gcc
 NAME		= libft.a
-CFLAGS		= -Wall -Werror -Wextra -g
+TEST_NAME	= test
+CFLAGS		= -Wall -Werror -Wextra -g -DDEBUG
 
 INCLUDES	= includes
 INC_FILES	= $(INCLUDES)/ft_stdio.h\
 $(INCLUDES)/ft_strings.h\
 $(INCLUDES)/ft_stdlib.h\
 $(INCLUDES)/ft_ctypes.h\
+$(INCLUDES)/ft_objects.h
 
 BASE_DIR	= src
 STDIO_DIR	= $(BASE_DIR)/ft_stdio
 STRING_DIR	= $(BASE_DIR)/ft_strings
 STDLIB_DIR	= $(BASE_DIR)/ft_stdlib
 CTYPES_DIR	= $(BASE_DIR)/ft_ctypes
+OBJECTS_DIR = $(BASE_DIR)/ft_objects
+TEST_DIR	= tests
 
 SRCS	= $(STDIO_DIR)/ft_putchar_fd.c
 SRCS	= $(STDIO_DIR)/ft_putendl_fd.c
@@ -75,6 +79,11 @@ SRCS	+= $(CTYPES_DIR)/ft_isascii.c
 SRCS	+= $(CTYPES_DIR)/ft_isdigit.c
 SRCS	+= $(CTYPES_DIR)/ft_isprint.c
 
+SRCS	+= $(OBJECTS_DIR)/StringList_init.c
+SRCS	+= $(OBJECTS_DIR)/StringList_insert.c
+SRCS	+= $(OBJECTS_DIR)/StringList_append.c
+SRCS	+= $(OBJECTS_DIR)/StringList_pop.c
+SRCS	+= $(OBJECTS_DIR)/StringList_pop_last.c
 
 OBJS	= $(SRCS:.c=.o)
 .PHONY: all re clean fclean
@@ -85,6 +94,10 @@ $(NAME): $(OBJS) $(INC_FILES)
 	@printf "$(COLOR_LIGHT_GREEN)Building library$(COLOR_NC)\n"
 	@ar -rcs $@ $?
 
+test: $(NAME) $(TEST_DIR)/test_StringList.c
+	@$(CC) $(CFLAGS) -o $(TEST_NAME) $(TEST_DIR)/test_StringList.c $(NAME) -I $(INCLUDES) -lcriterion
+	@./test
+
 %.o: %.c
 	@printf "$(COLOR_LIGHT_GREEN)Compiling $(@:.o=) $(COLOR_NC)\n"
 	@$(CC) $(CFLAGS) -o $@ -c $< -I $(INCLUDES)
@@ -92,6 +105,8 @@ $(NAME): $(OBJS) $(INC_FILES)
 clean:
 	@printf "$(COLOR_LIGHT_GREEN)Removing objects files$(COLOR_NC)\n"
 	@rm -rf $(OBJS)
+	@rm -rf $(TEST_NAME)
+	@rm -rf $(TEST_NAME).dSYM
 
 fclean: clean
 	@printf "$(COLOR_LIGHT_GREEN)Removing library$(COLOR_NC)\n"
