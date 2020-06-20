@@ -6,7 +6,7 @@
 /*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/13 08:01:05 by bbellavi          #+#    #+#             */
-/*   Updated: 2020/06/15 02:51:52 by bbellavi         ###   ########.fr       */
+/*   Updated: 2020/06/19 16:01:41 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,13 @@ typedef struct	s_string_list
 enum	objects_errors
 {
 	ERR_MEM_ALLOC_FAILED = 1,
-	ERR_NEG_INDEX = 2
+	ERR_NEG_INDEX = 2,
+	ERR_INDEX_OUT_OF_RANGE = 3
 };
 
 void	string_list_create(t_string_list **str_list);
 int		string_list_insert(t_string_list *items, int index, const char *item);
 int		string_list_append(t_string_list *items, const char *item);
+int		string_list_pop(t_string_list *items, int index);
 
 #endif
