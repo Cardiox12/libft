@@ -23,7 +23,8 @@ INC_FILES	= $(INCLUDES)/ft_stdio.h\
 $(INCLUDES)/ft_strings.h\
 $(INCLUDES)/ft_stdlib.h\
 $(INCLUDES)/ft_ctypes.h\
-$(INCLUDES)/ft_objects.h
+$(INCLUDES)/ft_objects.h\
+$(INCLUDES)/ft_math.h
 
 BASE_DIR	= src
 STDIO_DIR	= $(BASE_DIR)/ft_stdio
@@ -31,6 +32,7 @@ STRING_DIR	= $(BASE_DIR)/ft_strings
 STDLIB_DIR	= $(BASE_DIR)/ft_stdlib
 CTYPES_DIR	= $(BASE_DIR)/ft_ctypes
 OBJECTS_DIR = $(BASE_DIR)/ft_objects
+MATH_DIR	= $(BASE_DIR)/ft_math
 TEST_DIR	= tests
 
 SRCS	= $(STDIO_DIR)/ft_putchar_fd.c
@@ -84,6 +86,29 @@ SRCS	+= $(OBJECTS_DIR)/StringList_insert.c
 SRCS	+= $(OBJECTS_DIR)/StringList_append.c
 SRCS	+= $(OBJECTS_DIR)/StringList_pop.c
 SRCS	+= $(OBJECTS_DIR)/StringList_pop_last.c
+
+SRCS	+= $(MATH_DIR)/vec/vec_add.c
+SRCS	+= $(MATH_DIR)/vec/vec_cast.c
+SRCS	+= $(MATH_DIR)/vec/vec_dist.c
+SRCS	+= $(MATH_DIR)/vec/vec_div.c
+SRCS	+= $(MATH_DIR)/vec/vec_dot.c
+SRCS	+= $(MATH_DIR)/vec/vec_get_angle.c
+SRCS	+= $(MATH_DIR)/vec/vec_mag.c
+SRCS	+= $(MATH_DIR)/vec/vec_mult.c
+SRCS	+= $(MATH_DIR)/vec/vec_neg.c
+SRCS	+= $(MATH_DIR)/vec/vec_norm.c
+
+SRCS	+= $(MATH_DIR)/vec2/vec2_add.c
+SRCS	+= $(MATH_DIR)/vec2/vec2_cast.c
+SRCS	+= $(MATH_DIR)/vec2/vec2_dist.c
+SRCS	+= $(MATH_DIR)/vec2/vec2_div.c
+SRCS	+= $(MATH_DIR)/vec2/vec2_dot.c
+SRCS	+= $(MATH_DIR)/vec2/vec2_get_angle.c
+SRCS	+= $(MATH_DIR)/vec2/vec2_mag.c
+SRCS	+= $(MATH_DIR)/vec2/vec2_mult.c
+SRCS	+= $(MATH_DIR)/vec2/vec2_neg.c
+SRCS	+= $(MATH_DIR)/vec2/vec2_norm.c
+SRCS	+= $(MATH_DIR)/vec2/vec2_rotate.c
 
 OBJS	= $(SRCS:.c=.o)
 .PHONY: all re clean fclean
