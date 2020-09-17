@@ -18,3 +18,15 @@ Test(sample, simple)
 	for (int i = 0 ; i < list->length ; i++)
 		cr_expect(strcmp(list->items[i], strs[i]) == 0, "Expected %s but got %s", list->items[i], strs[i]);
 }
+
+Test(sample, medium)
+{
+	char			*s = "";
+	t_string_list	*list;
+
+	list = ft_split(s, ' ');
+	if (list == NULL)
+		return ;
+	cr_expect(list->length == 1, "Expected 1 but got %i\n", list->length);
+	cr_expect(*list->items[0] == '\0', "Expected empty string but got %s\n", list->items[0]);
+}
