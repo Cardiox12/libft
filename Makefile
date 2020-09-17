@@ -87,6 +87,9 @@ SRCS	+= $(OBJECTS_DIR)/StringList_append.c
 SRCS	+= $(OBJECTS_DIR)/StringList_pop.c
 SRCS	+= $(OBJECTS_DIR)/StringList_pop_last.c
 
+TESTS	= $(TEST_DIR)/test_StringList.c
+TESTS	+= $(TEST_DIR)/test_split.c
+
 OBJS	= $(SRCS:.c=.o)
 .PHONY: all re clean fclean
 
@@ -96,8 +99,8 @@ $(NAME): $(OBJS) $(INC_FILES)
 	@printf "$(COLOR_LIGHT_GREEN)Building library$(COLOR_NC)\n"
 	@ar -rcs $@ $?
 
-test: $(NAME) $(TEST_DIR)/test_StringList.c
-	@$(CC) $(CFLAGS) -o $(TEST_NAME) $(TEST_DIR)/test_StringList.c $(NAME) -I $(INCLUDES) -lcriterion
+test: $(NAME) $(TESTS)
+	@$(CC) $(CFLAGS) -o $(TEST_NAME) $(TESTS) $(NAME) -I $(INCLUDES) -lcriterion
 	@./test
 
 %.o: %.c

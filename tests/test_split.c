@@ -11,7 +11,7 @@ Test(sample, simple)
 	const char		*s = "Hello World";
 	t_string_list	*list;
 
-	list = split(s, ' ');
+	list = ft_split(s, ' ');
 	if (list == NULL)
 		return ;
 	cr_expect(list->length == 2, "Expected 2 but got %i", list->length);
