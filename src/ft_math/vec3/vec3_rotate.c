@@ -1,31 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vec2_cast.c                                        :+:      :+:    :+:   */
+/*   vec3_rotate.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/05 05:23:51 by bbellavi          #+#    #+#             */
-/*   Updated: 2020/07/02 19:36:12 by bbellavi         ###   ########.fr       */
+/*   Created: 2020/04/09 14:53:31 by bbellavi          #+#    #+#             */
+/*   Updated: 2020/07/02 19:27:44 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_math.h"
 
-t_vec	vec2_to_vec(t_vec2 a)
+/*
+**	Rotate 2d vector by theta angle.
+**
+**	IMPORTANT : The angle is in radians.
+*/
+
+t_vec3	rotate(t_vec3 u, double theta, char clockwise)
 {
-	t_vec ret;
+	t_vec3 v;
 
-	ret.x = (int)a.x;
-	ret.y = (int)a.y;
-	return (ret);
-}
-
-t_vec3	vec2_to_vec3(t_vec2 a)
-{
-	t_vec ret;
-
-	ret.x = (double)a.x;
-	ret.y = (double)a.y;
-	return (ret);
+	if (clockwise == CLOCKWISE)
+	{
+		v.x = cos(theta) * u.x - sin(theta) * u.y;
+		v.y = sin(theta) * u.x + cos(theta) * u.y;
+	}
+	else
+	{
+		v.x = cos(theta) * u.x + sin(theta) * u.y;
+		v.y = -sin(theta) * u.x + cos(theta) * u.y;
+	}
+	return (v);
 }

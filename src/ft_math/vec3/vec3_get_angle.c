@@ -1,31 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vec2_cast.c                                        :+:      :+:    :+:   */
+/*   vec3_get_angle.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/05 05:23:51 by bbellavi          #+#    #+#             */
-/*   Updated: 2020/07/02 19:36:12 by bbellavi         ###   ########.fr       */
+/*   Created: 2020/06/05 05:26:23 by bbellavi          #+#    #+#             */
+/*   Updated: 2020/07/02 19:27:06 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_math.h"
 
-t_vec	vec2_to_vec(t_vec2 a)
+float	get_angle3(t_vec3 a, t_vec3 b)
 {
-	t_vec ret;
+	const float dot = dot_vec3(a, b);
 
-	ret.x = (int)a.x;
-	ret.y = (int)a.y;
-	return (ret);
-}
-
-t_vec3	vec2_to_vec3(t_vec2 a)
-{
-	t_vec ret;
-
-	ret.x = (double)a.x;
-	ret.y = (double)a.y;
-	return (ret);
+	return (acos(dot / (mag_vec3(a) * mag_vec3(b))));
 }

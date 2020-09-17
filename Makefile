@@ -110,6 +110,18 @@ SRCS	+= $(MATH_DIR)/vec2/vec2_neg.c
 SRCS	+= $(MATH_DIR)/vec2/vec2_norm.c
 SRCS	+= $(MATH_DIR)/vec2/vec2_rotate.c
 
+SRCS	+= $(MATH_DIR)/vec3/vec3_add.c
+SRCS	+= $(MATH_DIR)/vec3/vec3_cast.c
+SRCS	+= $(MATH_DIR)/vec3/vec3_dist.c
+SRCS	+= $(MATH_DIR)/vec3/vec3_div.c
+SRCS	+= $(MATH_DIR)/vec3/vec3_dot.c
+SRCS	+= $(MATH_DIR)/vec3/vec3_get_angle.c
+SRCS	+= $(MATH_DIR)/vec3/vec3_mag.c
+SRCS	+= $(MATH_DIR)/vec3/vec3_mult.c
+SRCS	+= $(MATH_DIR)/vec3/vec3_neg.c
+SRCS	+= $(MATH_DIR)/vec3/vec3_norm.c
+SRCS	+= $(MATH_DIR)/vec3/vec3_rotate.c
+
 OBJS	= $(SRCS:.c=.o)
 .PHONY: all re clean fclean
 

@@ -6,7 +6,7 @@
 /*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/20 04:14:21 by bbellavi          #+#    #+#             */
-/*   Updated: 2020/06/26 02:42:51 by bbellavi         ###   ########.fr       */
+/*   Updated: 2020/07/02 19:55:56 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,6 @@ t_vec	add_vec(t_vec a, t_vec b);
 t_vec2	add_vec2(t_vec2 a, t_vec2 b);
 t_vec	mult_vec(t_vec a, float scalar);
 t_vec2	mult_vec2(t_vec2 a, float scalar);
-t_vec	to_vec(t_vec2 a);
-t_vec2	to_vec2(t_vec a);
 t_vec2	div_vec2(t_vec2 a, int scalar);
 t_vec	div_vec(t_vec a, int scalar);
 double	dist_vec(t_vec a, t_vec b);
@@ -57,5 +55,14 @@ float	get_angle(t_vec a, t_vec b);
 float	get_angle2(t_vec2 a, t_vec2 b);
 float	mag_vec(t_vec a);
 float	mag_vec2(t_vec2 a);
+
+t_vec	vec2_to_vec(t_vec2 a);
+t_vec	vec3_to_vec(t_vec3 a);
+t_vec2	vec_to_vec2(t_vec a);
+t_vec2	vec2_to_vec2(t_vec2 a);
+t_vec2	vec3_to_vec2(t_vec3 a);
+t_vec3	vec_to_vec3(t_vec a);
+t_vec3	vec2_to_vec3(t_vec2 a);
+t_vec3	vec3_to_vec3(t_vec3 a);
 
 #endif
