@@ -27,6 +27,14 @@ Test(sample, medium)
 	list = ft_split(s, ' ');
 	if (list == NULL)
 		return ;
-	cr_expect(list->length == 1, "Expected 1 but got %i\n", list->length);
-	cr_expect(*list->items[0] == '\0', "Expected empty string but got %s\n", list->items[0]);
+	cr_expect(list->length == 0, "Expected 1 but got %i\n", list->length);
+	free(list);
+
+	s = "Hello";
+	list = ft_split(s, 'l');
+	for (int i = 0; i < list->length; i++)
+	{
+		char *expect = (char[][10]){"He", "o"}[i];
+		cr_expect(strcmp(list->items[i], expect) == 0, "Expected %s but got %s", list->items[i], expect);
+	}
 }
