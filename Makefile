@@ -89,7 +89,6 @@ SRCS	+= $(OBJECTS_DIR)/StringList_append.c
 SRCS	+= $(OBJECTS_DIR)/StringList_pop.c
 SRCS	+= $(OBJECTS_DIR)/StringList_pop_last.c
 
-<<<<<<< HEAD
 SRCS	+= $(MATH_DIR)/vec/vec_add.c
 SRCS	+= $(MATH_DIR)/vec/vec_cast.c
 SRCS	+= $(MATH_DIR)/vec/vec_dist.c
@@ -124,10 +123,9 @@ SRCS	+= $(MATH_DIR)/vec3/vec3_mult.c
 SRCS	+= $(MATH_DIR)/vec3/vec3_neg.c
 SRCS	+= $(MATH_DIR)/vec3/vec3_norm.c
 SRCS	+= $(MATH_DIR)/vec3/vec3_rotate.c
-=======
+
 TESTS	= $(TEST_DIR)/test_StringList.c
 TESTS	+= $(TEST_DIR)/test_split.c
->>>>>>> master
 
 OBJS	= $(SRCS:.c=.o)
 .PHONY: all re clean fclean
@@ -143,7 +141,7 @@ test: $(NAME) $(TESTS)
 	@./test
 
 %.o: %.c
-	@printf "$(COLOR_LIGHT_GREEN)Compiling $(@:.o=) $(COLOR_NC)\n"
+	@printf "%-50s $(COLOR_LIGHT_GREEN)%-50s$(COLOR_NC)\n" "$(@:.o=)" "compiled [√]"
 	@$(CC) $(CFLAGS) -o $@ -c $< -I $(INCLUDES)
 
 clean:

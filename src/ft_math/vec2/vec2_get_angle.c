@@ -6,7 +6,7 @@
 /*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/05 05:26:23 by bbellavi          #+#    #+#             */
-/*   Updated: 2020/06/26 02:29:54 by bbellavi         ###   ########.fr       */
+/*   Updated: 2020/09/18 10:08:13 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 float	get_angle2(t_vec2 a, t_vec2 b)
 {
-	const float dot = dot_vec2(a, b);
+	const float dot = vec2_dot(a, b);
 
-	return (acos(dot / (mag_vec2(a) * mag_vec2(b))));
+	return (acos(dot / (vec2_mag(a) * vec2_mag(b))));
 }

@@ -6,7 +6,7 @@
 /*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/05 05:23:51 by bbellavi          #+#    #+#             */
-/*   Updated: 2020/07/02 19:36:12 by bbellavi         ###   ########.fr       */
+/*   Updated: 2020/09/18 09:58:54 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_vec	vec2_to_vec(t_vec2 a)
 
 t_vec3	vec2_to_vec3(t_vec2 a)
 {
-	t_vec ret;
+	t_vec3 ret;
 
 	ret.x = (double)a.x;
 	ret.y = (double)a.y;
