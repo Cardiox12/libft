@@ -6,7 +6,7 @@
 /*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/17 08:04:32 by bbellavi          #+#    #+#             */
-/*   Updated: 2020/09/17 08:09:16 by bbellavi         ###   ########.fr       */
+/*   Updated: 2020/09/18 11:56:28 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	*ft_strndup(const char *s, size_t n)
 {
 	const size_t	len = ft_strlen(s);
-	char					*dup;
+	char			*dup;
 
 	if (n >= len)
 		n = len;

@@ -6,16 +6,15 @@
 /*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/18 10:34:15 by bbellavi          #+#    #+#             */
-/*   Updated: 2020/09/18 10:36:54 by bbellavi         ###   ########.fr       */
+/*   Updated: 2020/09/18 12:13:10 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_strings.h"
 
-void	string_list_delete(t_string_list **list)
+void	string_list_delete(t_string_list *list)
 {
-	if (*list != NULL)
-	{
-		
-	}
+	string_list_iter(list, free);
+	free(list->items);
+	free(list);
 }
