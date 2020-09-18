@@ -16,7 +16,7 @@ COLOR_LIGHT_GREEN	= \e[1;32m
 CC			= gcc
 NAME		= libft.a
 TEST_NAME	= test
-CFLAGS		= -Wall -Werror -Wextra -g -DDEBUG
+CFLAGS		= -g -DDEBUG
 
 INCLUDES	= includes
 INC_FILES	= $(INCLUDES)/ft_stdio.h\
@@ -50,9 +50,11 @@ SRCS	+= $(STRING_DIR)/ft_memset.c
 SRCS	+= $(STRING_DIR)/ft_split.c
 SRCS	+= $(STRING_DIR)/ft_strchr.c
 SRCS	+= $(STRING_DIR)/ft_strdup.c
+SRCS	+= $(STRING_DIR)/ft_strndup.c
 SRCS	+= $(STRING_DIR)/ft_strjoin.c
 SRCS	+= $(STRING_DIR)/ft_strlcat.c
 SRCS	+= $(STRING_DIR)/ft_strlcpy.c
+SRCS	+= $(STRING_DIR)/ft_strncpy.c
 SRCS	+= $(STRING_DIR)/ft_strlen.c
 SRCS	+= $(STRING_DIR)/ft_strmapi.c
 SRCS	+= $(STRING_DIR)/ft_strncmp.c
@@ -87,6 +89,7 @@ SRCS	+= $(OBJECTS_DIR)/StringList_append.c
 SRCS	+= $(OBJECTS_DIR)/StringList_pop.c
 SRCS	+= $(OBJECTS_DIR)/StringList_pop_last.c
 
+<<<<<<< HEAD
 SRCS	+= $(MATH_DIR)/vec/vec_add.c
 SRCS	+= $(MATH_DIR)/vec/vec_cast.c
 SRCS	+= $(MATH_DIR)/vec/vec_dist.c
@@ -121,6 +124,10 @@ SRCS	+= $(MATH_DIR)/vec3/vec3_mult.c
 SRCS	+= $(MATH_DIR)/vec3/vec3_neg.c
 SRCS	+= $(MATH_DIR)/vec3/vec3_norm.c
 SRCS	+= $(MATH_DIR)/vec3/vec3_rotate.c
+=======
+TESTS	= $(TEST_DIR)/test_StringList.c
+TESTS	+= $(TEST_DIR)/test_split.c
+>>>>>>> master
 
 OBJS	= $(SRCS:.c=.o)
 .PHONY: all re clean fclean
@@ -131,8 +138,8 @@ $(NAME): $(OBJS) $(INC_FILES)
 	@printf "$(COLOR_LIGHT_GREEN)Building library$(COLOR_NC)\n"
 	@ar -rcs $@ $?
 
-test: $(NAME) $(TEST_DIR)/test_StringList.c
-	@$(CC) $(CFLAGS) -o $(TEST_NAME) $(TEST_DIR)/test_StringList.c $(NAME) -I $(INCLUDES) -lcriterion
+test: $(NAME) $(TESTS)
+	@$(CC) $(CFLAGS) -o $(TEST_NAME) $(TESTS) $(NAME) -I $(INCLUDES) -lcriterion
 	@./test
 
 %.o: %.c

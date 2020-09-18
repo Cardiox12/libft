@@ -6,7 +6,7 @@
 /*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/09 14:53:31 by bbellavi          #+#    #+#             */
-/*   Updated: 2020/07/02 19:27:44 by bbellavi         ###   ########.fr       */
+/*   Updated: 2020/09/18 09:52:59 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 **	IMPORTANT : The angle is in radians.
 */
 
-t_vec3	rotate(t_vec3 u, double theta, char clockwise)
+t_vec3	rotate_vec3(t_vec3 u, double theta, char clockwise)
 {
 	t_vec3 v;
 

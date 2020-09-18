@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/07 15:11:25 by bbellavi          #+#    #+#             */
-/*   Updated: 2020/09/17 08:09:36 by bbellavi         ###   ########.fr       */
+/*   Created: 2020/09/17 08:04:32 by bbellavi          #+#    #+#             */
+/*   Updated: 2020/09/17 08:09:16 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_strings.h"
 
-size_t		ft_strlcpy(char *dest, const char *src, size_t size)
+char	*ft_strndup(const char *s, size_t n)
 {
-	const size_t	src_len = ft_strlen(src);
+	const size_t	len = ft_strlen(s);
+	char					*dup;
 
-	if (src_len + 1 < size)
-		ft_strncpy(dest, src, src_len + 1);
-	else if (size != 0)
-	{
-		ft_strncpy(dest, src, size - 1);
-		dest[size - 1] = '\0';
-	}
-	return (src_len);
+	if (n >= len)
+		n = len;
+	dup = malloc(sizeof(char) * (n + 1));
+	if (dup == NULL)
+		return (NULL);
+	return (ft_strncpy(dup, s, n));
 }

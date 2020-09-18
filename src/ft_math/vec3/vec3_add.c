@@ -6,13 +6,13 @@
 /*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/05 05:21:50 by bbellavi          #+#    #+#             */
-/*   Updated: 2020/07/02 19:26:06 by bbellavi         ###   ########.fr       */
+/*   Updated: 2020/09/18 09:52:08 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_math.h"
 
-t_vec3	add_vec2(t_vec3 a, t_vec3 b)
+t_vec3	add_vec3(t_vec3 a, t_vec3 b)
 {
 	t_vec3 ret;
 
