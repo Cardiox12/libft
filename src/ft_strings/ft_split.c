@@ -6,7 +6,7 @@
 /*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/22 15:39:01 by bbellavi          #+#    #+#             */
-/*   Updated: 2020/09/17 20:04:56 by bbellavi         ###   ########.fr       */
+/*   Updated: 2020/09/18 09:49:05 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,7 @@ t_string_list	*ft_split(char const *s, char c)
 				iter++;
 		}
 		else
-		{
-			iter++;	
-		}
+			iter++;
 	}
 	return (list);
 }
