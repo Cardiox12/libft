@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   StringList_init.c                                  :+:      :+:    :+:   */
+/*   StringList_delete.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/13 08:22:13 by bbellavi          #+#    #+#             */
-/*   Updated: 2020/09/18 10:36:03 by bbellavi         ###   ########.fr       */
+/*   Created: 2020/09/18 10:34:15 by bbellavi          #+#    #+#             */
+/*   Updated: 2020/09/18 10:36:54 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_objects.h"
 #include "ft_strings.h"
 
-void	string_list_create(t_string_list **str_list)
+void	string_list_delete(t_string_list **list)
 {
-	t_string_list *new;
-
-	if ((new = malloc(sizeof(t_string_list))) == NULL)
-		*str_list = NULL;
-	else
+	if (*list != NULL)
 	{
-		new->length = 0;
-		new->items = NULL;
-		*str_list = new;
+		
 	}
 }
