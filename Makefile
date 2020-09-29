@@ -36,7 +36,7 @@ MATH_DIR	= $(BASE_DIR)/ft_math
 TEST_DIR	= tests
 
 SRCS	= $(STDIO_DIR)/ft_putchar_fd.c
-SRCS	= $(STDIO_DIR)/ft_putendl_fd.c
+SRCS	+= $(STDIO_DIR)/ft_putendl_fd.c
 SRCS	+= $(STDIO_DIR)/ft_putstr_fd.c
 SRCS	+= $(STDIO_DIR)/ft_putnbr_fd.c
 
@@ -129,7 +129,11 @@ SRCS	+= $(MATH_DIR)/vec3/vec3_rotate.c
 TESTS	= $(TEST_DIR)/test_StringList.c
 TESTS	+= $(TEST_DIR)/test_split.c
 
+include $(STDIO_DIR)/printf/module.mk
+
 OBJS	= $(SRCS:.c=.o)
+
+
 .PHONY: all re clean fclean
 
 all: $(NAME)
